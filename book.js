@@ -28,11 +28,15 @@ document.getElementById('search-btn').addEventListener('click', function () {
     toggleBookList('none');
     toggleSearchSection('none');
     toggleSearchResult('none');
+    toggleErrorResult('none');
     
     const bookSearchUrl = `https://openlibrary.org/search.json?q=${searchText}`
     if (searchText === '') {
         document.getElementById('error-msg').style.display = 'block';
         toggleSpinner('none');
+        toggleSearchSection('block');
+        toggleErrorResult('block');
+
     }
     else {
         fetch(bookSearchUrl)
@@ -41,6 +45,9 @@ document.getElementById('search-btn').addEventListener('click', function () {
                 if (data.docs.length === 0) {
                     document.getElementById('error-msg').style.display = 'block';
                     toggleSpinner('none');
+                    toggleSearchSection('block');
+                    toggleErrorResult('block');
+
                 }
                 else {
                     displayBooks(data.docs);
