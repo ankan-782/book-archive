@@ -80,7 +80,7 @@ const displayBooks = books => {
             </div>
             <div class="card-body d-flex flex-column justify-content-between p-1 mt-3">
                 <div class="text-center">
-                    <h3 class="card-title text-danger">${book.title}</h3>
+                    <h3 class="card-title text-danger d-block text-truncate" title="${book.title}">${book.title}</h3>
                 </div>
                 <div class="mt-3">
                     <h6 class="card-text text-white-50">Authors: <span title="${book.author_name}" class="text-danger d-block text-truncate fs-5">${book.author_name ? book.author_name : 'Not Found'}</span></h6>
